@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "1d72d0ec-de59-474d-b4ef-e038edd961f2": {
+      "ProjectGuid": "1d72d0ec-de59-474d-b4ef-e038edd961f2",
+      "DisplayName": "AdminClient",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
