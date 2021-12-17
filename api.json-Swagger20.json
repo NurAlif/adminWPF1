@@ -1,0 +1,1259 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "Crocodile Handycraft",
+    "description": "The crafts API description",
+    "contact": {}
+  },
+  "host": "www.example.com",
+  "basePath": "/",
+  "securityDefinitions": {},
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/crafts": {
+      "post": {
+        "description": "",
+        "summary": "CraftsController_create",
+        "tags": [
+          "crafts"
+        ],
+        "operationId": "CraftsController_create",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreateCraftDto"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "get": {
+        "description": "",
+        "summary": "CraftsController_findAll",
+        "tags": [
+          "crafts"
+        ],
+        "operationId": "CraftsController_findAll",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/crafts/{id}": {
+      "get": {
+        "description": "",
+        "summary": "CraftsController_findOne",
+        "tags": [
+          "crafts"
+        ],
+        "operationId": "CraftsController_findOne",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "patch": {
+        "description": "",
+        "summary": "CraftsController_update",
+        "tags": [
+          "crafts"
+        ],
+        "operationId": "CraftsController_update",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateCraftDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "summary": "CraftsController_remove",
+        "tags": [
+          "crafts"
+        ],
+        "operationId": "CraftsController_remove",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "number",
+            "format": "double",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/crafts/addphoto": {
+      "post": {
+        "description": "",
+        "summary": "CraftsController_addphoto",
+        "tags": [
+          "crafts"
+        ],
+        "operationId": "CraftsController_addphoto",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AddPhotoCraftDto"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/crafts/removephoto": {
+      "post": {
+        "description": "",
+        "summary": "CraftsController_removephoto",
+        "tags": [
+          "crafts"
+        ],
+        "operationId": "CraftsController_removephoto",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AddPhotoCraftDto"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/materials": {
+      "post": {
+        "description": "",
+        "summary": "MaterialsController_create",
+        "tags": [
+          "materials"
+        ],
+        "operationId": "MaterialsController_create",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreateMaterialDto"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "get": {
+        "description": "",
+        "summary": "MaterialsController_findAll",
+        "tags": [
+          "materials"
+        ],
+        "operationId": "MaterialsController_findAll",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/materials/{id}": {
+      "delete": {
+        "description": "",
+        "summary": "MaterialsController_remove",
+        "tags": [
+          "materials"
+        ],
+        "operationId": "MaterialsController_remove",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "number",
+            "format": "double",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/categories": {
+      "post": {
+        "description": "",
+        "summary": "CategoriesController_create",
+        "tags": [
+          "categories"
+        ],
+        "operationId": "CategoriesController_create",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreateCategoryDto"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "get": {
+        "description": "",
+        "summary": "CategoriesController_findAll",
+        "tags": [
+          "categories"
+        ],
+        "operationId": "CategoriesController_findAll",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/categories/{id}": {
+      "delete": {
+        "description": "",
+        "summary": "CategoriesController_remove",
+        "tags": [
+          "categories"
+        ],
+        "operationId": "CategoriesController_remove",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "number",
+            "format": "double",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/users": {
+      "post": {
+        "description": "",
+        "summary": "UsersController_create",
+        "tags": [
+          "Users"
+        ],
+        "operationId": "UsersController_create",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreateUserDto"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "type": "object",
+              "default": ""
+            },
+            "headers": {}
+          }
+        }
+      },
+      "get": {
+        "description": "",
+        "summary": "UsersController_findAll",
+        "tags": [
+          "Users"
+        ],
+        "operationId": "UsersController_findAll",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "description": "",
+        "summary": "UsersController_findOne",
+        "tags": [
+          "Users"
+        ],
+        "operationId": "UsersController_findOne",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "number",
+            "format": "double",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "type": "object",
+              "default": ""
+            },
+            "headers": {}
+          }
+        }
+      },
+      "patch": {
+        "description": "",
+        "summary": "UsersController_update",
+        "tags": [
+          "Users"
+        ],
+        "operationId": "UsersController_update",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "number",
+            "format": "double",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateUserDto"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "type": "object",
+              "default": ""
+            },
+            "headers": {}
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "summary": "UsersController_remove",
+        "tags": [
+          "Users"
+        ],
+        "operationId": "UsersController_remove",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "number",
+            "format": "double",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "type": "object",
+              "default": ""
+            },
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/photos": {
+      "post": {
+        "description": "",
+        "summary": "PhotosController_create",
+        "tags": [
+          "Photos"
+        ],
+        "operationId": "PhotosController_create",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreatePhotoDto"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "get": {
+        "description": "",
+        "summary": "PhotosController_findAll",
+        "tags": [
+          "Photos"
+        ],
+        "operationId": "PhotosController_findAll",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/photos/{id}": {
+      "get": {
+        "description": "",
+        "summary": "PhotosController_findOne",
+        "tags": [
+          "Photos"
+        ],
+        "operationId": "PhotosController_findOne",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/comments": {
+      "post": {
+        "description": "",
+        "summary": "CommentsController_create",
+        "tags": [
+          "Comments"
+        ],
+        "operationId": "CommentsController_create",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "get": {
+        "description": "",
+        "summary": "CommentsController_findAll",
+        "tags": [
+          "Comments"
+        ],
+        "operationId": "CommentsController_findAll",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/comments/{id}": {
+      "get": {
+        "description": "",
+        "summary": "CommentsController_findOne",
+        "tags": [
+          "Comments"
+        ],
+        "operationId": "CommentsController_findOne",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "patch": {
+        "description": "",
+        "summary": "CommentsController_update",
+        "tags": [
+          "Comments"
+        ],
+        "operationId": "CommentsController_update",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "enum": [
+              "application/json"
+            ],
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "summary": "CommentsController_remove",
+        "tags": [
+          "Comments"
+        ],
+        "operationId": "CommentsController_remove",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "description": "",
+        "summary": "AppController_getHello",
+        "operationId": "AppController_getHello",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "CreateCraftDto": {
+      "title": "CreateCraftDto",
+      "type": "object",
+      "properties": {
+        "name": {
+          "example": "Wooden Stool 1",
+          "type": "string",
+          "default": "Wooden Stool 1"
+        },
+        "description": {
+          "example": "-",
+          "type": "string",
+          "default": "-"
+        },
+        "material": {
+          "example": 1,
+          "type": "number",
+          "default": "1",
+          "format": "double"
+        },
+        "category": {
+          "example": 1,
+          "type": "number",
+          "default": "1",
+          "format": "double"
+        },
+        "photos": {
+          "example": [
+            2,
+            1
+          ],
+          "type": "array",
+          "default": "[\r\n  2,\r\n  1\r\n]",
+          "items": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "author": {
+          "example": 8,
+          "type": "number",
+          "default": "8",
+          "format": "double"
+        },
+        "thumbnail": {
+          "example": 1,
+          "type": "number",
+          "default": "1",
+          "format": "double"
+        },
+        "disabled": {
+          "example": false,
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "required": [
+        "name",
+        "description",
+        "material",
+        "category",
+        "photos",
+        "author",
+        "thumbnail"
+      ]
+    },
+    "UpdateCraftDto": {
+      "title": "UpdateCraftDto",
+      "type": "object",
+      "properties": {
+        "id": {
+          "example": 8,
+          "type": "number",
+          "default": "8",
+          "format": "double"
+        },
+        "name": {
+          "example": "Wooden Stool 1",
+          "type": "string",
+          "default": "Wooden Stool 1"
+        },
+        "description": {
+          "example": "-",
+          "type": "string",
+          "default": "-"
+        },
+        "material": {
+          "example": 1,
+          "type": "number",
+          "default": 1.0,
+          "format": "double"
+        },
+        "category": {
+          "example": 1,
+          "type": "number",
+          "default": 1.0,
+          "format": "double"
+        },
+        "photos": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "author": {
+          "example": 8,
+          "type": "number",
+          "default": 8.0,
+          "format": "double"
+        },
+        "thumbnail": {
+          "example": 1,
+          "type": "number",
+          "default": 1.0,
+          "format": "double"
+        },
+        "disabled": {
+          "example": false,
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "required": [
+        "id"
+      ]
+    },
+    "AddPhotoCraftDto": {
+      "title": "AddPhotoCraftDto",
+      "type": "object",
+      "properties": {
+        "craftId": {
+          "example": 4,
+          "type": "number",
+          "default": "4",
+          "format": "double"
+        },
+        "photoId": {
+          "example": 2,
+          "type": "number",
+          "default": "2",
+          "format": "double"
+        }
+      },
+      "required": [
+        "craftId",
+        "photoId"
+      ]
+    },
+    "CreateMaterialDto": {
+      "title": "CreateMaterialDto",
+      "type": "object",
+      "properties": {
+        "name": {
+          "example": "Teak Wood",
+          "type": "string",
+          "default": "Teak Wood"
+        },
+        "description": {
+          "example": "Unique texture",
+          "type": "string",
+          "default": "Unique texture"
+        }
+      },
+      "required": [
+        "name",
+        "description"
+      ]
+    },
+    "CreateCategoryDto": {
+      "title": "CreateCategoryDto",
+      "type": "object",
+      "properties": {
+        "name": {
+          "example": "Cultery",
+          "type": "string",
+          "default": "Cultery"
+        },
+        "description": {
+          "example": "Spoons, Plate, Bowl, etc...",
+          "type": "string",
+          "default": "Spoons, Plate, Bowl, etc..."
+        },
+        "disabled": {
+          "example": false,
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "required": [
+        "name",
+        "description"
+      ]
+    },
+    "CreateUserDto": {
+      "title": "CreateUserDto",
+      "type": "object",
+      "properties": {
+        "name": {
+          "example": "Marius Wijaya",
+          "type": "string",
+          "default": "Marius Wijaya"
+        },
+        "email": {
+          "example": "Marius@gmail.com",
+          "type": "string",
+          "default": "Marius@gmail.com"
+        },
+        "phone": {
+          "example": "+1812173030",
+          "type": "string",
+          "default": "+1812173030"
+        },
+        "role": {
+          "$ref": "#/definitions/Role"
+        },
+        "password": {
+          "example": "Abcd1234",
+          "type": "string",
+          "default": "Abcd1234"
+        },
+        "disabled": {
+          "example": false,
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "required": [
+        "name",
+        "email",
+        "password"
+      ]
+    },
+    "UpdateUserDto": {
+      "title": "UpdateUserDto",
+      "type": "object",
+      "properties": {
+        "name": {
+          "example": "Marius Wijaya",
+          "type": "string",
+          "default": "Marius Wijaya"
+        },
+        "email": {
+          "example": "Marius@gmail.com",
+          "type": "string",
+          "default": "Marius@gmail.com"
+        },
+        "phone": {
+          "example": "+1812173030",
+          "type": "string",
+          "default": "+1812173030"
+        },
+        "role": {
+          "$ref": "#/definitions/Role"
+        },
+        "password": {
+          "example": "Abcd1234",
+          "type": "string",
+          "default": "Abcd1234"
+        },
+        "disabled": {
+          "example": false,
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "CreatePhotoDto": {
+      "title": "CreatePhotoDto",
+      "type": "object",
+      "properties": {
+        "url": {
+          "example": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuxjYbpapps17hZGfCUCTuTSf_lCosIJIQmwva0ErzIFeBlV7piyMHSoFJ0HzXwpTtEl0&usqp=CAU",
+          "type": "string",
+          "default": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuxjYbpapps17hZGfCUCTuTSf_lCosIJIQmwva0ErzIFeBlV7piyMHSoFJ0HzXwpTtEl0&usqp=CAU"
+        },
+        "description": {
+          "example": "penguin",
+          "type": "string",
+          "default": "penguin"
+        }
+      },
+      "required": [
+        "url",
+        "description"
+      ]
+    },
+    "Role": {
+      "title": "Role",
+      "example": "admin",
+      "type": "string",
+      "enum": [
+        "admin",
+        "visitor"
+      ]
+    }
+  },
+  "tags": [
+    {
+      "name": "Craft",
+      "description": ""
+    },
+    {
+      "name": "crafts",
+      "description": ""
+    },
+    {
+      "name": "materials",
+      "description": ""
+    },
+    {
+      "name": "categories",
+      "description": ""
+    },
+    {
+      "name": "Users",
+      "description": ""
+    },
+    {
+      "name": "Photos",
+      "description": ""
+    },
+    {
+      "name": "Comments",
+      "description": ""
+    }
+  ]
+}

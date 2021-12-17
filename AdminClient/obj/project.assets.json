@@ -1,43 +1,38 @@
 {
   "version": 3,
   "targets": {
-    "net6.0-windows7.0": {}
+    "net5.0-windows7.0": {}
   },
   "libraries": {},
   "projectFileDependencyGroups": {
-    "net6.0-windows7.0": []
+    "net5.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\sain1\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\nural\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sain1\\source\\repos\\AdminClient\\AdminClient\\AdminClient.csproj",
+      "projectUniqueName": "C:\\Users\\nural\\Documents\\pemvis\\adminWPF1\\AdminClient\\AdminClient.csproj",
       "projectName": "AdminClient",
-      "projectPath": "C:\\Users\\sain1\\source\\repos\\AdminClient\\AdminClient\\AdminClient.csproj",
-      "packagesPath": "C:\\Users\\sain1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sain1\\source\\repos\\AdminClient\\AdminClient\\obj\\",
+      "projectPath": "C:\\Users\\nural\\Documents\\pemvis\\adminWPF1\\AdminClient\\AdminClient.csproj",
+      "packagesPath": "C:\\Users\\nural\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\nural\\Documents\\pemvis\\adminWPF1\\AdminClient\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\sain1\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\nural\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net6.0-windows7.0"
+        "net5.0-windows7.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net6.0-windows7.0": {
-          "targetAlias": "net6.0-windows",
+        "net5.0-windows7.0": {
+          "targetAlias": "net5.0-windows",
           "projectReferences": {}
         }
       },
@@ -48,8 +43,8 @@
       }
     },
     "frameworks": {
-      "net6.0-windows7.0": {
-        "targetAlias": "net6.0-windows",
+      "net5.0-windows7.0": {
+        "targetAlias": "net5.0-windows",
         "imports": [
           "net461",
           "net462",
@@ -68,7 +63,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }
