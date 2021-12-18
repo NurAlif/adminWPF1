@@ -256,6 +256,7 @@ namespace AdminClient
             var _result = new HttpOperationResponse();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
+            string cont = _httpResponse.Content.AsString();
             if (_shouldTrace)
             {
                 ServiceClientTracing.Exit(_invocationId, _result);
