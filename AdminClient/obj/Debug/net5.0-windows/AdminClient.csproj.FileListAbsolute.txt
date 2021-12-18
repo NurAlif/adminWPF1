@@ -45,3 +45,6 @@ C:\Users\sain1\source\repos\adminWPF1\AdminClient\obj\Debug\net5.0-windows\Admin
 C:\Users\sain1\source\repos\adminWPF1\AdminClient\obj\Debug\net5.0-windows\AdminClient.csproj.CoreCompileInputs.cache
 C:\Users\sain1\source\repos\adminWPF1\AdminClient\obj\Debug\net5.0-windows\AdminClient.csproj.CopyComplete
 C:\Users\sain1\source\repos\adminWPF1\AdminClient\obj\Debug\net5.0-windows\AdminClient.genruntimeconfig.cache
+C:\Users\nural\Documents\pemvis\adminWPF1\AdminClient\bin\Debug\net5.0-windows\Microsoft.Rest.ClientRuntime.dll
+C:\Users\nural\Documents\pemvis\adminWPF1\AdminClient\bin\Debug\net5.0-windows\Newtonsoft.Json.dll
+C:\Users\nural\Documents\pemvis\adminWPF1\AdminClient\obj\Debug\net5.0-windows\AdminClient.csproj.CopyComplete

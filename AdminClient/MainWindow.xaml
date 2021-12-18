@@ -11,45 +11,76 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="300" />
         </Grid.ColumnDefinitions>
-        <ListView Margin="10,10,10,10" Name="LVCrafts" Grid.Column="0">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <WrapPanel>
-                            <TextBlock Text="Title" Width="120"/>
-                            <TextBox Text="{Binding Craft.Name}" AcceptsReturn="True" TextWrapping="Wrap" Width="200"/>
-                        </WrapPanel>
-                        <WrapPanel>
-                            <TextBlock Text="Description" Width="120"/>
-                            <TextBox Text="{Binding Craft.Description}" AcceptsReturn="True" TextWrapping="Wrap" Width="200"/>
-                        </WrapPanel>
-                        <WrapPanel>
-                            <TextBlock Text="Material" Width="120"/>
-                            <ComboBox Width="200"
+        <TabControl Grid.Column="0">
+            <TabItem Header="Craft List">
+            <ListView Margin="10,10,10,10" Name="LVCrafts" Grid.Row="1" SelectionChanged="OnSelectedCraftChanged">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <WrapPanel>
+                                <TextBlock Text="Title" Width="120"/>
+                                <TextBox Text="{Binding Craft.Name}" AcceptsReturn="True" TextWrapping="Wrap" Width="200"/>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <TextBlock Text="Description" Width="120"/>
+                                <TextBox Text="{Binding Craft.Description}" AcceptsReturn="True" TextWrapping="Wrap" Width="200"/>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <TextBlock Text="Material" Width="120"/>
+                                <ComboBox Width="200"
                                   ItemsSource="{Binding Path=Materials}"
                                   DisplayMemberPath="Name"
                                   SelectedValuePath="Name"
                                   SelectedValue="{Binding Path=Craft.Material.Name}" />
-                        </WrapPanel>
-                        <WrapPanel>
-                            <TextBlock Text="Category" Width="120"/>
-                            <ComboBox Width="200"
+                            </WrapPanel>
+                            <WrapPanel>
+                                <TextBlock Text="Category" Width="120"/>
+                                <ComboBox Width="200"
                                   ItemsSource="{Binding Path=Categories}"
                                   DisplayMemberPath="Name"
                                   SelectedValuePath="Name"
                                   SelectedValue="{Binding Path=Craft.Category.Name}" />
-                        </WrapPanel>
-                        <WrapPanel>
-                            <TextBlock Text="Thumbnail" Width="120"/>
-                            <Image 
-                                Source="{Binding Thumbnail}"
-                                Stretch="Uniform"
-                                Width="200"/>
-                        </WrapPanel>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <TextBlock Text="Thumbnail" Width="120"/>
+                                <Image 
+                                    Source="{Binding Craft.Thumbnail.Url}"
+                                    Stretch="Uniform"
+                                    Width="200"
+                                    Height="150"/>
+                            </WrapPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            </TabItem>
+            <TabItem Header="Add New Craft">
+                <StackPanel Grid.Row="0">
+                    <WrapPanel>
+                        <TextBlock Text="Title" Width="120"/>
+                        <TextBox Width="200" Name="TBName"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <TextBlock Text="Description" Width="120"/>
+                        <TextBox Width="200" Name="TBDescription"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <TextBlock Text="Material" Width="120"/>
+                        <ComboBox Width="200" Name="CBMaterial"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <TextBlock Text="Category" Width="120"/>
+                        <ComboBox Width="200" Name="CBCategory"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <TextBlock Text="Thumbnail" Width="120"/>
+                        <Image 
+                    Stretch="Uniform"
+                    Height="150"/>
+                    </WrapPanel>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="20" />
@@ -63,47 +94,42 @@
             <ListView Margin="10,0,10,10" Name="LVPhotosCurrent" Grid.Row="1">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <WrapPanel>
-                            <TextBlock Text="Name: " />
-                            <TextBlock Text="{Binding Name}" FontWeight="Bold" />
-                            <TextBlock Text=", " />
-                            <TextBlock Text="Age: " />
-                            <TextBlock Text="{Binding Age}" FontWeight="Bold" />
-                            <TextBlock Text=" (" />
-                            <TextBlock Text="{Binding Mail}" TextDecorations="Underline" Foreground="Blue" Cursor="Hand" />
-                            <TextBlock Text=")" />
-                        </WrapPanel>
+                        <StackPanel>
+                            <Image Width="200" Height="150" Stretch="Uniform"
+                                   Source="{Binding Url}"/>
+                            <TextBlock Text="{Binding Description}" FontWeight="Bold" />
+                        </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
             <StackPanel Grid.Row="2">
                 <WrapPanel Margin="10,0,10,3">
                     <Button
-                        Width="65"
-                        Height="30">
+                    Width="65"
+                    Height="30">
                         <WrapPanel>
                             <TextBlock Text="New" Margin="0,0,5,0"/>
                             <Image Source="Images/new.png" Stretch="Fill" StretchDirection="Both" Width="12" Height="10"/>
                         </WrapPanel>
                     </Button>
                     <Button
-                        Width="65"
-                        Margin="0,0,20,0">
+                    Width="65"
+                    Margin="0,0,20,0">
                         <WrapPanel>
                             <TextBlock Text="Delete" Margin="0,0,5,0"/>
                             <Image Source="Images/trash.png" Stretch="Fill" StretchDirection="Both" Width="12" Height="10"/>
                         </WrapPanel>
                     </Button>
                     <Button 
-                        Width="65"
-                        HorizontalAlignment="Right">
+                    Width="65"
+                    HorizontalAlignment="Right">
                         <WrapPanel>
                             <TextBlock Text="Add" Margin="0,0,5,0"/>
                             <Image Source="Images/up.png" Stretch="Fill" StretchDirection="Both" Width="12" Height="10"/>
                         </WrapPanel>
                     </Button>
                     <Button Width="65"
-                        HorizontalAlignment="Right">
+                    HorizontalAlignment="Right">
                         <WrapPanel>
                             <TextBlock Text="Remove"/>
                             <Image Source="Images/down.png" Stretch="Fill" StretchDirection="Both" Width="12" Height="10"/>
@@ -115,16 +141,11 @@
             <ListView Margin="10,0,10,10" Name="LVPhotosAll" Grid.Row="3">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <WrapPanel>
-                            <TextBlock Text="Name: " />
-                            <TextBlock Text="{Binding Name}" FontWeight="Bold" />
-                            <TextBlock Text=", " />
-                            <TextBlock Text="Age: " />
-                            <TextBlock Text="{Binding Age}" FontWeight="Bold" />
-                            <TextBlock Text=" (" />
-                            <TextBlock Text="{Binding Mail}" TextDecorations="Underline" Foreground="Blue" Cursor="Hand" />
-                            <TextBlock Text=")" />
-                        </WrapPanel>
+                        <StackPanel>
+                            <Image Width="200" Height="150" Stretch="Uniform"
+                                   Source="{Binding Url}"/>
+                            <TextBlock Text="{Binding Description}" FontWeight="Bold" />
+                        </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

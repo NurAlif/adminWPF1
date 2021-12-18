@@ -49,6 +49,17 @@ namespace AdminClient
             }
         }
 
+
+        private Craft selectedCraft;
+        private Photo selectedPhotoAll;
+        private Photo selectedPhotoCurrent;
+
+        private List<Craft> crafts;
+        private List<Photo> photos;
+        private List<Photo> photosCurrent;
+        private List<Category> categories;
+        private List<Material> materials;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -59,23 +70,23 @@ namespace AdminClient
             Task<HttpOperationResponse> resp = crocodileHandycraft.CraftsController.FindAllWithHttpMessagesAsync();
             resp.Wait();
             string data = resp.Result.Response.Content.AsString();
-            List<Craft> crafts = JsonConvert.DeserializeObject<List<Craft>>(data);
+            crafts = JsonConvert.DeserializeObject<List<Craft>>(data);
 
             Task<HttpOperationResponse> respPhotos = crocodileHandycraft.PhotosController.FindAllWithHttpMessagesAsync();
             respPhotos.Wait();
             string dataPhotos = respPhotos.Result.Response.Content.AsString();
-            List<Photo> photos = JsonConvert.DeserializeObject<List<Photo>>(dataPhotos);
+            photos = JsonConvert.DeserializeObject<List<Photo>>(dataPhotos);
             LVPhotosAll.ItemsSource = photos;
 
             Task<HttpOperationResponse> respCategories = crocodileHandycraft.CategoriesController.FindAllWithHttpMessagesAsync();
             respCategories.Wait();
             string dataCategories = respCategories.Result.Response.Content.AsString();
-            List<Category> categories = JsonConvert.DeserializeObject<List<Category>>(dataCategories);
+            categories = JsonConvert.DeserializeObject<List<Category>>(dataCategories);
 
             Task<HttpOperationResponse> respMaterials = crocodileHandycraft.MaterialsController.FindAllWithHttpMessagesAsync();
             respMaterials.Wait();
             string dataMaterials = respMaterials.Result.Response.Content.AsString();
-            List<Material> materials = JsonConvert.DeserializeObject<List<Material>>(dataMaterials);
+            materials = JsonConvert.DeserializeObject<List<Material>>(dataMaterials);
 
             List<CraftDataAdapter> craftDatas = new List<CraftDataAdapter>();
             crafts.ForEach(c => {
@@ -83,7 +94,30 @@ namespace AdminClient
             });
 
             LVCrafts.ItemsSource = craftDatas;
+
+            LVPhotosAll.ItemsSource = photos;
         }
+
+        public void OnSelectedCraftChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (LVCrafts.SelectedIndex < 0) return;
+            selectedCraft = crafts[LVCrafts.SelectedIndex];
+
+            LVPhotosCurrent.ItemsSource = selectedCraft.Photos;
+        }
+
+        public void OnSelectedPhotoAll(object sender, SelectionChangedEventArgs e)
+        {
+            if (LVCrafts.SelectedIndex < 0) return;
+            selectedPhotoAll = photos[LVCrafts.SelectedIndex];
+        }
+
+        public void OnSelectedPhotoCurrent(object sender, SelectionChangedEventArgs e)
+        {
+            if (LVCrafts.SelectedIndex < 0) return;
+            selectedPhotoCurrent = photosCurrent[LVPhotosCurrent.SelectedIndex];
+        }
+
         public class User
         {
             public string Name { get; set; }
