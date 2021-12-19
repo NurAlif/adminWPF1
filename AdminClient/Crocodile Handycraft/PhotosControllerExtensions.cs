@@ -4,107 +4,136 @@
 
 namespace AdminClient
 {
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
+    using Models;
     using System.Threading;
     using System.Threading.Tasks;
-    using Microsoft.Rest;
-    using Models;
 
     /// <summary>
     /// Extension methods for PhotosController.
     /// </summary>
     public static partial class PhotosControllerExtensions
     {
-            /// <summary>
-            /// PhotosController_create
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='body'>
-            /// </param>
-            /// <param name='contentType'>
-            /// . Possible values include: 'application/json'
-            /// </param>
-            public static void Create(this IPhotosController operations, CreatePhotoDto body, string contentType = default(string))
-            {
-                Task.Factory.StartNew(s => ((IPhotosController)s).CreateAsync(body, contentType), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
-            }
+        /// <summary>
+        /// PhotosController_create
+        /// </summary>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='body'>
+        /// </param>
+        /// <param name='contentType'>
+        /// . Possible values include: 'application/json'
+        /// </param>
+        public static void Create(this IPhotosController operations, CreatePhotoDto body, string contentType = default(string))
+        {
+            Task.Factory.StartNew(s => ((IPhotosController)s).CreateAsync(body, contentType), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+        }
 
-            /// <summary>
-            /// PhotosController_create
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='body'>
-            /// </param>
-            /// <param name='contentType'>
-            /// . Possible values include: 'application/json'
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task CreateAsync(this IPhotosController operations, CreatePhotoDto body, string contentType = default(string), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                await operations.CreateWithHttpMessagesAsync(body, contentType, null, cancellationToken).ConfigureAwait(false);
-            }
+        /// <summary>
+        /// PhotosController_create
+        /// </summary>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='body'>
+        /// </param>
+        /// <param name='contentType'>
+        /// . Possible values include: 'application/json'
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        public static async Task CreateAsync(this IPhotosController operations, CreatePhotoDto body, string contentType = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            await operations.CreateWithHttpMessagesAsync(body, contentType, null, cancellationToken).ConfigureAwait(false);
+        }
 
-            /// <summary>
-            /// PhotosController_findAll
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            public static void FindAll(this IPhotosController operations)
-            {
-                Task.Factory.StartNew(s => ((IPhotosController)s).FindAllAsync(), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
-            }
+        /// <summary>
+        /// PhotosController_findAll
+        /// </summary>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        public static void FindAll(this IPhotosController operations)
+        {
+            Task.Factory.StartNew(s => ((IPhotosController)s).FindAllAsync(), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+        }
 
-            /// <summary>
-            /// PhotosController_findAll
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task FindAllAsync(this IPhotosController operations, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                await operations.FindAllWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false);
-            }
+        /// <summary>
+        /// PhotosController_findAll
+        /// </summary>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        public static async Task FindAllAsync(this IPhotosController operations, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            await operations.FindAllWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false);
+        }
 
-            /// <summary>
-            /// PhotosController_findOne
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='id'>
-            /// </param>
-            public static void FindOne(this IPhotosController operations, string id)
-            {
-                Task.Factory.StartNew(s => ((IPhotosController)s).FindOneAsync(id), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
-            }
+        /// <summary>
+        /// PhotosController_findOne
+        /// </summary>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='id'>
+        /// </param>
+        public static void FindOne(this IPhotosController operations, string id)
+        {
+            Task.Factory.StartNew(s => ((IPhotosController)s).FindOneAsync(id), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+        }
 
-            /// <summary>
-            /// PhotosController_findOne
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='id'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task FindOneAsync(this IPhotosController operations, string id, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                await operations.FindOneWithHttpMessagesAsync(id, null, cancellationToken).ConfigureAwait(false);
-            }
+        /// <summary>
+        /// PhotosController_findOne
+        /// </summary>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='id'>
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        public static async Task FindOneAsync(this IPhotosController operations, string id, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            await operations.FindOneWithHttpMessagesAsync(id, null, cancellationToken).ConfigureAwait(false);
+        }
+
+        public static void Remove(this IPhotosController operations, double id)
+        {
+            Task.Factory.StartNew(s => ((IPhotosController)s).RemoveAsync(id), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+        }
+
+        /// <summary>
+        /// CraftsController_remove
+        /// </summary>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='id'>
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        public static async Task RemoveAsync(this IPhotosController operations, double id, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            await operations.RemoveWithHttpMessagesAsync(id, null, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// CraftsController_addphoto
+        /// </summary>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='body'>
+        /// </param>
+        /// <param name='contentType'>
+        /// . Possible values include: 'application/json'
+        /// </param>
 
     }
 }

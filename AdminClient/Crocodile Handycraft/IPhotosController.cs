@@ -4,13 +4,11 @@
 
 namespace AdminClient
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Net.Http;
-    using System.Threading;
-    using System.Threading.Tasks;
     using Microsoft.Rest;
     using Models;
+    using System.Collections.Generic;
+    using System.Threading;
+    using System.Threading.Tasks;
 
     /// <summary>
     /// PhotosController operations.
@@ -54,5 +52,21 @@ namespace AdminClient
         /// The cancellation token.
         /// </param>
         Task<HttpOperationResponse> FindOneWithHttpMessagesAsync(string id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task<HttpOperationResponse> RemoveWithHttpMessagesAsync(double id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// CraftsController_addphoto
+        /// </summary>
+        /// <param name='body'>
+        /// </param>
+        /// <param name='contentType'>
+        /// . Possible values include: 'application/json'
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
     }
 }

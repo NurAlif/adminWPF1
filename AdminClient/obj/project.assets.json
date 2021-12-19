@@ -5236,19 +5236,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nural\\.nuget\\packages\\": {}
+    "C:\\Users\\sain1\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nural\\Documents\\pemvis\\adminWPF1\\AdminClient\\AdminClient.csproj",
+      "projectUniqueName": "C:\\Users\\sain1\\Documents\\pemviz\\anu\\AdminClient\\AdminClient.csproj",
       "projectName": "AdminClient",
-      "projectPath": "C:\\Users\\nural\\Documents\\pemvis\\adminWPF1\\AdminClient\\AdminClient.csproj",
-      "packagesPath": "C:\\Users\\nural\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nural\\Documents\\pemvis\\adminWPF1\\AdminClient\\obj\\",
+      "projectPath": "C:\\Users\\sain1\\Documents\\pemviz\\anu\\AdminClient\\AdminClient.csproj",
+      "packagesPath": "C:\\Users\\sain1\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sain1\\Documents\\pemviz\\anu\\AdminClient\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\nural\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sain1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5297,7 +5302,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

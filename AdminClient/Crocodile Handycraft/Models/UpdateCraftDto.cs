@@ -21,7 +21,7 @@ namespace AdminClient.Models
         /// <summary>
         /// Initializes a new instance of the UpdateCraftDto class.
         /// </summary>
-        public UpdateCraftDto(double id, string name = default(string), string description = default(string), double? material = default(double?), double? category = default(double?), IList<double?> photos = default(IList<double?>), double? author = default(double?), double? thumbnail = default(double?), bool? disabled = default(bool?))
+        public UpdateCraftDto(double id, string name = default(string), string description = default(string), double? material = default(double?), double? category = default(double?), double? thumbnail = default(double?), IList<double?> photos = default(IList<double?>), double? author = default(double?), bool? disabled = default(bool?))
         {
             Id = id;
             Name = name;

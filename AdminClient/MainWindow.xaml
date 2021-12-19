@@ -11,16 +11,25 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="300" />
         </Grid.ColumnDefinitions>
-        <TabControl Grid.Column="0">
+        <TabControl Grid.Column="0" SelectionChanged="TabControl_SelectionChanged" Name="tab">
             <TabItem Header="Craft List">
             <ListView Margin="10,10,10,10" Name="LVCrafts" Grid.Row="1" SelectionChanged="OnSelectedCraftChanged">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel>
+                        <StackPanel Width="Auto">
                             <WrapPanel>
                                 <TextBlock Text="Title" Width="120"/>
                                 <TextBox Text="{Binding Craft.Name}" AcceptsReturn="True" TextWrapping="Wrap" Width="200"/>
-                            </WrapPanel>
+                                <Button Width="100"
+                                    Height="20"
+                                    Margin="10, 0"
+                                    HorizontalAlignment="Right"
+                                    Click="OnCraftUpdate">
+                                    <WrapPanel>
+                                        <TextBlock Text="Update"/>
+                                    </WrapPanel>
+                                </Button>
+                                </WrapPanel>
                             <WrapPanel>
                                 <TextBlock Text="Description" Width="120"/>
                                 <TextBox Text="{Binding Craft.Description}" AcceptsReturn="True" TextWrapping="Wrap" Width="200"/>
@@ -30,9 +39,18 @@
                                 <ComboBox Width="200"
                                   ItemsSource="{Binding Path=Materials}"
                                   DisplayMemberPath="Name"
-                                  SelectedValuePath="Name"
-                                  SelectedValue="{Binding Path=Craft.Material.Name}" />
-                            </WrapPanel>
+                                  SelectedValuePath="Id"
+                                  SelectedValue="{Binding Path=Craft.Material.Id}" />
+                                <Button Width="100"
+                                    Height="20"
+                                    Margin="10, 0"
+                                    HorizontalAlignment="Right"
+                                    Click="OnCraftDelete">
+                                        <WrapPanel>
+                                            <TextBlock Text="Delete"/>
+                                        </WrapPanel>
+                                    </Button>
+                                </WrapPanel>
                             <WrapPanel>
                                 <TextBlock Text="Category" Width="120"/>
                                 <ComboBox Width="200"
@@ -42,14 +60,32 @@
                                   SelectedValue="{Binding Path=Craft.Category.Name}" />
                             </WrapPanel>
                             <WrapPanel>
-                                <TextBlock Text="Thumbnail" Width="120"/>
-                                <Image 
-                                    Source="{Binding Craft.Thumbnail.Url}"
-                                    Stretch="Uniform"
-                                    Width="200"
-                                    Height="150"/>
-                            </WrapPanel>
-                        </StackPanel>
+                            <TextBlock Text="Thumbnail" Width="120"/>
+                                <Border BorderThickness="1" BorderBrush="Gray" Background="WhiteSmoke">
+                                    <Image 
+                                        Source="{Binding Craft.Thumbnail.Url}"
+                                        Stretch="Uniform"
+                                        Width="198"
+                                        Height="100"/>
+                                </Border>
+                                    <Button Width="100"
+                                Height="20"
+                                Margin="10"
+                                HorizontalAlignment="Right"
+                            Click="OnCraftSetPhoto">
+                                        <WrapPanel>
+                                            <TextBlock Text="Set Photo"/>
+                                        </WrapPanel>
+                                    </Button>
+                                </WrapPanel>
+                            <Line
+                                Margin="0,4"
+                                SnapsToDevicePixels="True"
+                                Stretch="Fill"
+                                Stroke="LightGray"
+                                X1="0" X2="1" 
+                                />
+                            </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
@@ -59,6 +95,7 @@
                     <WrapPanel>
                         <TextBlock Text="Title" Width="120"/>
                         <TextBox Width="200" Name="TBName"/>
+                        
                     </WrapPanel>
                     <WrapPanel>
                         <TextBlock Text="Description" Width="120"/>
@@ -66,18 +103,47 @@
                     </WrapPanel>
                     <WrapPanel>
                         <TextBlock Text="Material" Width="120"/>
-                        <ComboBox Width="200" Name="CBMaterial"/>
+                        <ComboBox Width="200" Name="CBMaterial"
+                                  ItemsSource="{Binding Path=materials}"
+                                  DisplayMemberPath="Name"
+                                  SelectedValuePath="Name"
+                                  SelectedValue="{Binding Path=materials.Name}"/>
                     </WrapPanel>
                     <WrapPanel>
                         <TextBlock Text="Category" Width="120"/>
-                        <ComboBox Width="200" Name="CBCategory"/>
+                        <ComboBox Width="200" Name="CBCategory"
+                                  ItemsSource="{Binding Path=categories}"
+                                  DisplayMemberPath="Name"
+                                  SelectedValuePath="Name"
+                                  SelectedValue="{Binding Path=categories.Name}"/>
                     </WrapPanel>
                     <WrapPanel>
                         <TextBlock Text="Thumbnail" Width="120"/>
-                        <Image 
-                    Stretch="Uniform"
-                    Height="150"/>
+                        <Border BorderThickness="1" BorderBrush="Gray" Background="WhiteSmoke">
+                            <Image 
+                                Stretch="Uniform"
+                                Height="100"
+                                Width="198"
+                                Name="NewPhoto"/>
+                        </Border>
+                        <Button Width="100"
+                                Height="20"
+                                Margin="10"
+                                HorizontalAlignment="Right"
+                            Click="OnNewCraftSetPhoto">
+                            <WrapPanel>
+                                <TextBlock Text="Set Photo"/>
+                            </WrapPanel>
+                        </Button>
                     </WrapPanel>
+                    <Button Width="100"
+                            Height="30"
+                            HorizontalAlignment="Right"
+                            Click="OnNewCraft">
+                        <WrapPanel>
+                            <TextBlock Text="Add Craft"/>
+                        </WrapPanel>
+                    </Button>
                 </StackPanel>
             </TabItem>
         </TabControl>
@@ -91,13 +157,22 @@
             <StackPanel Grid.Row="0">
                 <TextBlock Margin="10,0,0,0" Text="Craft photos:"/>
             </StackPanel>
-            <ListView Margin="10,0,10,10" Name="LVPhotosCurrent" Grid.Row="1">
+            <ListView Margin="10,0,10,10" Name="LVPhotosCurrent" Grid.Row="1" SelectionChanged="OnSelectedPhotoCurrent">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel>
-                            <Image Width="200" Height="150" Stretch="Uniform"
+                        <StackPanel Width="240">
+                            <Border BorderThickness="1" BorderBrush="Gray" Background="WhiteSmoke">
+                                <Image Width="200" Height="150" Stretch="Uniform"
                                    Source="{Binding Url}"/>
+                            </Border>
                             <TextBlock Text="{Binding Description}" FontWeight="Bold" />
+                            <Line
+                                Margin="0,4"
+                                SnapsToDevicePixels="True"
+                                Stretch="Fill"
+                                Stroke="LightGray"
+                                X1="0" X2="1" 
+                                />
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -106,7 +181,8 @@
                 <WrapPanel Margin="10,0,10,3">
                     <Button
                     Width="65"
-                    Height="30">
+                    Height="30"
+                        Click="OnBtNewPhoto">
                         <WrapPanel>
                             <TextBlock Text="New" Margin="0,0,5,0"/>
                             <Image Source="Images/new.png" Stretch="Fill" StretchDirection="Both" Width="12" Height="10"/>
@@ -114,7 +190,8 @@
                     </Button>
                     <Button
                     Width="65"
-                    Margin="0,0,20,0">
+                    Margin="0,0,20,0"
+                        Click="OnDeletePhoto">
                         <WrapPanel>
                             <TextBlock Text="Delete" Margin="0,0,5,0"/>
                             <Image Source="Images/trash.png" Stretch="Fill" StretchDirection="Both" Width="12" Height="10"/>
@@ -122,14 +199,16 @@
                     </Button>
                     <Button 
                     Width="65"
-                    HorizontalAlignment="Right">
+                    HorizontalAlignment="Right"
+                        Click="OnAddPhoto">
                         <WrapPanel>
                             <TextBlock Text="Add" Margin="0,0,5,0"/>
                             <Image Source="Images/up.png" Stretch="Fill" StretchDirection="Both" Width="12" Height="10"/>
                         </WrapPanel>
                     </Button>
                     <Button Width="65"
-                    HorizontalAlignment="Right">
+                    HorizontalAlignment="Right"
+                            Click="OnRemovePhoto">
                         <WrapPanel>
                             <TextBlock Text="Remove"/>
                             <Image Source="Images/down.png" Stretch="Fill" StretchDirection="Both" Width="12" Height="10"/>
@@ -138,13 +217,22 @@
                 </WrapPanel>
                 <TextBlock Margin="10,0,0,0" Text="All photos:" />
             </StackPanel>
-            <ListView Margin="10,0,10,10" Name="LVPhotosAll" Grid.Row="3">
+            <ListView Margin="10,0,10,10" Name="LVPhotosAll" Grid.Row="3" SelectionChanged="OnSelectedPhotoAll">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel>
-                            <Image Width="200" Height="150" Stretch="Uniform"
+                        <StackPanel Width="240">
+                            <Border BorderThickness="1" BorderBrush="Gray" Background="WhiteSmoke">
+                                <Image Width="200" Height="150" Stretch="Uniform"
                                    Source="{Binding Url}"/>
+                            </Border>
                             <TextBlock Text="{Binding Description}" FontWeight="Bold" />
+                            <Line
+                                Margin="0,4"
+                                SnapsToDevicePixels="True"
+                                Stretch="Fill"
+                                Stroke="LightGray"
+                                X1="0" X2="1" 
+                                />
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
